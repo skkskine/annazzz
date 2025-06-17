@@ -9,8 +9,10 @@ import sharp from 'sharp'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { Categories } from './collections/Categories'
+import { Categorie } from './collections/Categorie'
 import { About } from './globals/about'
+import { it } from '@payloadcms/translations/languages/it'
+import { Disegni } from './collections/Disegni'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Categories],
+  collections: [Users, Media, Categorie, Disegni],
   globals: [About],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -35,6 +37,10 @@ export default buildConfig({
     },
   }),
   sharp,
+  i18n: {
+    fallbackLanguage: 'en',
+    supportedLanguages: { it },
+  },
   plugins: [
     payloadCloudPlugin(),
     vercelBlobStorage({
