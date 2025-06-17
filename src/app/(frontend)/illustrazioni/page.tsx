@@ -8,6 +8,7 @@ export default async function Illustrazioni() {
   const { docs } = await payload.find({
     collection: 'disegni',
   })
+  const slugs = docs.map((doc) => doc.slug)
 
   const images = docs.map((doc) => {
     return doc.images![0]
@@ -15,7 +16,12 @@ export default async function Illustrazioni() {
 
   return (
     <>
-      <ImageGallery section="illustrazioni" images={images} numberOfColumns={4}></ImageGallery>
+      <ImageGallery
+        section="illustrazioni"
+        images={images}
+        numberOfColumns={4}
+        slugs={slugs}
+      ></ImageGallery>
     </>
   )
 }

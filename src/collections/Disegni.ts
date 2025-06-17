@@ -1,8 +1,14 @@
-import { CollectionConfig } from 'payload'
+import { CollectionBeforeChangeHook, CollectionBeforeValidateHook, CollectionConfig } from 'payload'
+
+const beforeValidateHook: CollectionBeforeValidateHook = async ({ data }) => {
+  console.log('BOOOO', data?.name)
+  return { ...data, slug: (data?.name as string).toLocaleLowerCase().replace(' ', '-') }
+}
 
 export const Disegni: CollectionConfig = {
   slug: 'disegni',
   fields: [
+    { name: 'slug', required: true, unique: true, type: 'text', admin: { hidden: true } },
     { name: 'name', type: 'text', label: 'Nome', required: true },
     { name: 'category', type: 'relationship', relationTo: 'categorie', label: 'Categoria' },
     { name: 'year', type: 'number', label: 'Anno', required: true },
@@ -40,4 +46,5 @@ export const Disegni: CollectionConfig = {
       it: 'Disegni',
     },
   },
+  hooks: { beforeChange: [beforeValidateHook] },
 }

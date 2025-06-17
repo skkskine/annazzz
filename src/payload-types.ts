@@ -173,6 +173,7 @@ export interface Categorie {
  */
 export interface Disegni {
   id: number;
+  slug: string;
   name: string;
   category?: (number | null) | Categorie;
   year: number;
@@ -312,6 +313,7 @@ export interface CategorieSelect<T extends boolean = true> {
  * via the `definition` "disegni_select".
  */
 export interface DisegniSelect<T extends boolean = true> {
+  slug?: T;
   name?: T;
   category?: T;
   year?: T;

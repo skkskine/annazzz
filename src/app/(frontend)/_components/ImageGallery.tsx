@@ -1,12 +1,12 @@
 import { Media } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ReactNode } from 'react'
 import GridLayout from './GridLayout'
 
 type Props = {
   numberOfColumns: number
   section: string
+  slugs: string[]
   images:
     | {
         image: number | Media
@@ -16,19 +16,13 @@ type Props = {
     | undefined
 }
 
-export default async function ImageGallery({ images, numberOfColumns, section }: Props) {
-  const imageList = images?.map((image) => {
+export default async function ImageGallery({ images, numberOfColumns, section, slugs }: Props) {
+  const imageList = images?.map((image, idx) => {
     if (image && typeof image.image === 'object') {
-      console.log(image)
       return (
         <div key={image.id}>
-          <Link href={`${section}/${image.id}`}>
-            <Image
-              src={image.image.url!}
-              alt={image.image.alt}
-              layout="fill"
-              className="relative!"
-            ></Image>
+          <Link href={`${section}/${slugs[idx]}`}>
+            <Image src={image.image.url!} alt={image.image.alt} fill className="relative!"></Image>
           </Link>
         </div>
       )
