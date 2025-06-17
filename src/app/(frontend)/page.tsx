@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles.css'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
