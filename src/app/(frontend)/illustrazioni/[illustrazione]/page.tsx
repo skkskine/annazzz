@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import RouteError from '../../_components/RouteError'
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import { ImageDisplay } from '../../_components/ImageDisplay'
 
 export default async function Illustrazione({
   params,
@@ -21,7 +22,6 @@ export default async function Illustrazione({
   })
 
   const disegno = docs[0]
-
   if (!disegno) {
     return <RouteError></RouteError>
   }
@@ -30,7 +30,8 @@ export default async function Illustrazione({
     <>
       <h1>{disegno.name}</h1>
       <RichText data={disegno.richDesc}></RichText>
-      <p>{disegno.year}</p>
+      <p className="mb-5">{disegno.year}</p>
+      <ImageDisplay images={disegno.images}></ImageDisplay>
     </>
   )
 }
