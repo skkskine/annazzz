@@ -4,7 +4,7 @@ import Link from 'next/link'
 import GridLayout from './GridLayout'
 
 type Props = {
-  numberOfColumns: number
+  numberOfColumns: 2 | 3 | 4
   section: string
   slugs: string[]
   images:

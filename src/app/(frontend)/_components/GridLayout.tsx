@@ -2,11 +2,15 @@ import { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
-  numberOfColumns: number
+  numberOfColumns: 2 | 3 | 4
 }
 
 export default function GridLayout({ children, numberOfColumns }: Props) {
-  const gridSpan = `grid-cols-${numberOfColumns}`
+  const grids = {
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+  }
 
-  return <div className={`grid gap-4` + gridSpan}>{children}</div>
+  return <div className={'grid grid-gap-4' + grids[numberOfColumns]}>{children}</div>
 }
