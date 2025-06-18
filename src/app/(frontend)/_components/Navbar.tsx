@@ -4,7 +4,12 @@ export default async function Navbar() {
   return (
     <nav className="flex justify-between p-4">
       <Link href="/">Annazzz</Link>
-      <Link href="/illustrazioni">Illustrazioni</Link>
+      <div>
+        <Link href="/illustrazioni" className="mr-3">
+          Illustrazioni
+        </Link>
+        <Link href="/about">Contatti</Link>
+      </div>
     </nav>
   )
 }
