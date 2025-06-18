@@ -12,5 +12,5 @@ export default function GridLayout({ children, numberOfColumns }: Props) {
     4: 'grid-cols-4',
   }
 
-  return <div className={'grid grid-gap-4' + grids[numberOfColumns]}>{children}</div>
+  return <div className={'grid grid-gap-4 ' + grids[numberOfColumns]}>{children}</div>
 }
