@@ -1,3 +1,5 @@
+'use client'
+
 import { Media } from '@/payload-types'
 import Image from 'next/image'
 
@@ -11,7 +13,7 @@ type Props = {
     | undefined
 }
 
-export async function ImageDisplay({ images }: Props) {
+export function ImageDisplay({ images }: Props) {
   console.log(images)
   const imageList = images?.map((image) => {
     if (image && typeof image.image === 'object') {

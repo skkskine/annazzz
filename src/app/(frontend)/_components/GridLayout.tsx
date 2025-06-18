@@ -1,3 +1,4 @@
+'use client'
 import { ReactNode } from 'react'
 
 type Props = {
@@ -5,7 +6,7 @@ type Props = {
   numberOfColumns: number
 }
 
-export default async function GridLayout({ children, numberOfColumns }: Props) {
+export default function GridLayout({ children, numberOfColumns }: Props) {
   const gridSpan = numberOfColumns || 4
 
   return <div className={`grid grid-cols-${gridSpan} gap-4`}>{children}</div>

@@ -1,6 +1,7 @@
+'use client'
 import Link from 'next/link'
 
-export default async function Navbar() {
+export default function Navbar() {
   return (
     <nav className="flex justify-between p-4">
       <Link href="/">Annazzz</Link>
