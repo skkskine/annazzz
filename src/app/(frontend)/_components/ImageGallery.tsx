@@ -16,7 +16,7 @@ type Props = {
     | undefined
 }
 
-export default async function ImageGallery({ images, numberOfColumns, section, slugs }: Props) {
+export default function ImageGallery({ images, numberOfColumns, section, slugs }: Props) {
   const imageList = images?.map((image, idx) => {
     if (image && typeof image.image === 'object') {
       return (
