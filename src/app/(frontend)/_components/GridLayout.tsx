@@ -8,5 +8,5 @@ type Props = {
 export default function GridLayout({ children, numberOfColumns }: Props) {
   const gridSpan = numberOfColumns || 4
 
-  return <div className={`grid grid-cols-${gridSpan} gap-4`}>{children}</div>
+  return <div className={`grid grid-cols-4 gap-4`}>{children}</div>
 }
