@@ -1,4 +1,3 @@
-'use client'
 import { Media } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
