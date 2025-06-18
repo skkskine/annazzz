@@ -1,14 +1,8 @@
 import React from 'react'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import Link from 'next/link'
 
 export default async function HomePage() {
-  /*const payload = await getPayload({ config })
-
-  const doc = await payload.findByID({
-    collection: 'categories',
-    id: '1',
-  })*/
-
-  return <>AAA</>
+  return <></>
 }
