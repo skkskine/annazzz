@@ -1,7 +1,6 @@
-import { CollectionBeforeChangeHook, CollectionBeforeValidateHook, CollectionConfig } from 'payload'
+import { CollectionBeforeValidateHook, CollectionConfig } from 'payload'
 
 const beforeValidateHook: CollectionBeforeValidateHook = async ({ data }) => {
-  console.log('BOOOO', data?.name)
   return { ...data, slug: (data?.name as string).toLocaleLowerCase().replace(' ', '-') }
 }
 

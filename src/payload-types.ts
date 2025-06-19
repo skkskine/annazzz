@@ -380,6 +380,7 @@ export interface About {
     };
     [k: string]: unknown;
   };
+  image: number | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -389,6 +390,7 @@ export interface About {
  */
 export interface AboutSelect<T extends boolean = true> {
   text?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

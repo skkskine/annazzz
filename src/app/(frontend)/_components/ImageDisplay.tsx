@@ -14,7 +14,6 @@ type Props = {
 }
 
 export function ImageDisplay({ images }: Props) {
-  console.log(images)
   const imageList = images?.map((image) => {
     if (image && typeof image.image === 'object') {
       return (
