@@ -13,6 +13,7 @@ import { Categorie } from './collections/Categorie'
 import { About } from './globals/about'
 import { it } from '@payloadcms/translations/languages/it'
 import { Disegni } from './collections/Disegni'
+import { ComingSoon } from './globals/coming-soon'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +26,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Categorie, Disegni],
-  globals: [About],
+  globals: [About, ComingSoon],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

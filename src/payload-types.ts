@@ -90,9 +90,11 @@ export interface Config {
   };
   globals: {
     about: About;
+    'coming-soon': ComingSoon;
   };
   globalsSelect: {
     about: AboutSelect<false> | AboutSelect<true>;
+    'coming-soon': ComingSoonSelect<false> | ComingSoonSelect<true>;
   };
   locale: null;
   user: User & {
@@ -386,11 +388,31 @@ export interface About {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "coming-soon".
+ */
+export interface ComingSoon {
+  id: number;
+  comingSoon?: boolean | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about_select".
  */
 export interface AboutSelect<T extends boolean = true> {
   text?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "coming-soon_select".
+ */
+export interface ComingSoonSelect<T extends boolean = true> {
+  comingSoon?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
